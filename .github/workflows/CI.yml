@@ -28,6 +28,6 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: ls
-        working-directory: ./test/${{ env.p }}
+        working-directory: ./${{ env.p }}
           
   
