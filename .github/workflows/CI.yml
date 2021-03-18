@@ -30,6 +30,4 @@ jobs:
         run: ls
         working-directory: ./test/${{ env.p }}
           
-          
-          
-          echo test, and deploy your project.
+  
