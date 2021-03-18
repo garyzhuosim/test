@@ -28,6 +28,6 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run；ls 
         run: ls
-        working-directory: './test'
+        working-directory: '$env.p/test'
           
   
