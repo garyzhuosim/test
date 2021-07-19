@@ -23,11 +23,13 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Use default ver
-        if: ${{ github.event.inputs.ver }} == 'default'
+        if: ${{ github.event.inputs.ver == 'default' }}
         run: echo "ver2=$(date +'%Y%m%d')" >> $GITHUB_ENV
+        
       - name: Use input ver
-        if: ${{ github.event.inputs.ver }} != 'default'
+        if: ${{ github.event.inputs.ver != 'default' }}
         run: echo "ver2=${{ github.event.inputs.ver }}" >> $GITHUB_ENV
+        
       - name: print ver2
         run: echo ${{ env.ver2 }}
           
