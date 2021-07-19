@@ -24,7 +24,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Use default ver
         if: ${{ github.event.inputs.ver == 'default' }}
-        run: echo "ver2=$(date +'%Y%m%d')" >> $GITHUB_ENV
+        run: echo "ver2=$(date +'%Y%m%d%H%M')" >> $GITHUB_ENV
         
       - name: Use input ver
         if: ${{ github.event.inputs.ver != 'default' }}
