@@ -9,7 +9,7 @@ on:
       ver:
         description: 'The version of release'
         required: true
-        default: ''
+        default: 'default'
 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -25,6 +25,8 @@ jobs:
       - name: Get current date
         id: releaseversion
         run: echo "::set-output name=ver2::$(date +'%Y%m%d')"
+      - name: print inputs
+        run: echo ${{ github.event.inputs.ver }}
       - name: Print date
         run: echo ${{ steps.releaseversion.outputs.ver2 }}
           
