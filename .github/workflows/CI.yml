@@ -31,6 +31,6 @@ jobs:
         run: echo "ver2=${{ github.event.inputs.ver }}" >> $GITHUB_ENV
         
       - name: print ver2
-        run: echo "${{ env.ver2 }} {{ env.GITHUB_RUN_ID }}"
+        run: echo "${{ env.ver2 }} ${{ env.GITHUB_RUN_ID }}"
           
   
