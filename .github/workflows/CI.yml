@@ -23,11 +23,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Get current date
-        id: releaseversion
-        run: echo "::set-output name=ver2::$(date +'%Y%m%d')"
+        run: echo "verdefault=$(date +'%Y%m%d')" >> $GITHUB_ENV
+      - name: Get current date2
+        run: echo "verinput=${{ github.event.inputs.ver }}" >> $GITHUB_ENV
       - name: print inputs
-        run: echo ${{ github.event.inputs.ver }}
+        run: echo ${{ env.verinput }}
       - name: Print date
-        run: echo ${{ steps.releaseversion.outputs.ver2 }}
+        run: echo ${{ env.verdefault }}
           
   
