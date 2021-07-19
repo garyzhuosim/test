@@ -24,7 +24,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Get current date
         id: releaseversion
-        run: echo "::set-output name=ver2::$(date +'%Y-%m-%d')"
+        run: echo "::set-output name=ver2::$(date +'%Y%m%d')"
       - name: Print date
         run: echo ${{ steps.releaseversion.outputs.ver2 }}
           
