@@ -24,13 +24,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Use default ver
         if: ${{ github.event.inputs.ver == 'auto-generated' }}
-        run: echo "ver2=$(date +'%Y%m%d%H%M')" >> $GITHUB_ENV
+        run: echo "deploy-version=$(date +'%Y%m%d%H%M')" >> $GITHUB_ENV
         
       - name: Use input ver
         if: ${{ github.event.inputs.ver != 'auto-generated' }}
-        run: echo "ver2=${{ github.event.inputs.ver }}" >> $GITHUB_ENV
+        run: echo "deploy-version=${{ github.event.inputs.ver }}" >> $GITHUB_ENV
         
       - name: print ver2
-        run: echo "${{ env.ver2 }} ${{ github.run_id }} ${{ github.run_number  }}"
+        run: echo "${{ env.deploy-version }} ${{ github.run_id }} ${{ github.run_number  }}"
           
   
