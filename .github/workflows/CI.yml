@@ -8,8 +8,8 @@ on:
     inputs:
       ver:
         description: 'The version of release'
-        required: true
-        default: 'default'
+        required: false
+        default: 'auto-generated'
 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -23,11 +23,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Use default ver
-        if: ${{ github.event.inputs.ver == 'default' }}
+        if: ${{ github.event.inputs.ver == 'auto-generated' }}
         run: echo "ver2=$(date +'%Y%m%d%H%M')" >> $GITHUB_ENV
         
       - name: Use input ver
-        if: ${{ github.event.inputs.ver != 'default' }}
+        if: ${{ github.event.inputs.ver != 'auto-generated' }}
         run: echo "ver2=${{ github.event.inputs.ver }}" >> $GITHUB_ENV
         
       - name: print ver2
