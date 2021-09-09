@@ -31,6 +31,7 @@ jobs:
         run: echo "deploy-version=${{ github.event.inputs.ver }}" >> $GITHUB_ENV
         
       - name: print ver2
-        run: echo "${{ env:deploy-version }} ${{ github.run_id }} ${{ github.run_number  }}"
+        run: echo "$env:deploy-version ${{ github.run_id }} ${{ github.run_number  }}"
+        
           
   
