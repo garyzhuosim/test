@@ -29,7 +29,13 @@ jobs:
       - name: Use input ver
         if: ${{ github.event.inputs.ver != 'auto-generated' }}
         run: echo "deploy-version=${{ github.event.inputs.ver }}" >> $GITHUB_ENV
-        
+      - run: |
+         echo ("BRANCH_NAME=" + $env:GITHUB_REF.replace('refs/heads/', '')) >> $env:GITHUB_ENV
+      
+      - run: echo "${{ env.BRANCH_NAME }}"
+      
+      - run: echo $env:BRANCH_NAME
+      
       - name: print ver2
         run: echo "$env:deploy-version ${{ github.run_id }} ${{ github.run_number  }}"
         
