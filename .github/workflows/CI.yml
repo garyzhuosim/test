@@ -33,5 +33,8 @@ jobs:
       - name: print ver2
         run: echo "${{ env.deploy-version }}"
         
+      - name: print sha
+        run: echo "${{ env.GITHUB_SHA }}"
+        
           
   
