@@ -22,6 +22,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
       - name: Use default ver
         if: ${{ github.event.inputs.ver == 'auto-generated' }}
         run: echo "deploy-version=$(date +'%Y%m%d%H%M')" >> $env:GITHUB_ENV
