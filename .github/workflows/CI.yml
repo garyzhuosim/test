@@ -33,5 +33,8 @@ jobs:
       - name: print ver2
         run: echo "${{ env.deploy-version }} ${{ github.run_id }} ${{ github.run_number  }}"
         
+      - name: git log
+        run: git log -1 --format='%H'
+        
           
   
