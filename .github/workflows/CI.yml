@@ -17,25 +17,21 @@ jobs:
   # This workflow contains a single job called "build"
   build2:
     # The type of runner that the job will run on
-    runs-on: windows-2019
+    runs-on: ubuntu-latest
      
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
       - name: Use default ver
         if: ${{ github.event.inputs.ver == 'auto-generated' }}
-        run: echo "deploy-version=$(date +'%Y%m%d%H%M')" >> $env:GITHUB_ENV
+        run: echo "deploy-version=$(date +'%Y%m%d%H%M')" >> $GITHUB_ENV
         
       - name: Use input ver
         if: ${{ github.event.inputs.ver != 'auto-generated' }}
-        run: echo "deploy-version=${{ github.event.inputs.ver }}" >> $env:GITHUB_ENV
-      
-      - name: print ver2
-        run: echo "${{ env.deploy-version }}"
+        run: echo "deploy-version=${{ github.event.inputs.ver }}" >> $GITHUB_ENV
         
-      - name: print sha
-        run: echo "${{ github.sha }}"
+      - name: print ver2
+        run: echo "${{ env.deploy-version }} ${{ github.run_id }} ${{ github.run_number  }}"
         
           
   
